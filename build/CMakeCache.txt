@@ -148,7 +148,7 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Enable/Disable output of compile commands during generation.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=ON
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
 
 //Path to a program.
 CMAKE_GDB:FILEPATH=/home/kerraiosc/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb

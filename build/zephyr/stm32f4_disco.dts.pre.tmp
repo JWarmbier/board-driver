@@ -693,7 +693,7 @@
 };
 &can1 {
  status = "okay";
- bus-speed = <0x1e848>;
+ bus-speed = <125000>;
  phase-seg1 = <0x0d>;
  phase-seg2 = <0x02>;
 };

@@ -185,6 +185,7 @@ void get_motor_mode(struct motor_dev * , struct device * );
 void get_motor_setpoints(struct motor_dev *, struct device *);
 void get_motor_actual_values(struct motor_dev * , struct device * );
 void get_motor_actual_limits(struct motor_dev * , struct device * );
+void get_motor_actual_position(struct motor_dev * , struct device * );
 
 void motor_enable(struct motor_dev * , struct device * );
 void motor_disable(struct motor_dev * , struct device * );
@@ -398,6 +399,13 @@ void get_motor_actual_values(struct motor_dev * motor, struct device * dev){
 	if(can_motor_request(dev, motor, CS_DOWNLOAD, SDO_ACTUAL_POSFOLLOWINGERR_INDEX, SDO_ACTUAL_POSFOLLOWINGERR_SUBINDEX, data)){
 		motor->actual_values.PosFollowingErr = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
 	}
+	if(can_motor_request(dev, motor, CS_DOWNLOAD, SDO_ACTUAL_POSITION_INDEX, SDO_ACTUAL_POSITION_SUBINDEX, data)){
+		motor->actual_values.Position = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
+	}
+}
+
+void get_motor_actual_position(struct motor_dev * motor, struct device * dev){
+	u8_t data[4];
 	if(can_motor_request(dev, motor, CS_DOWNLOAD, SDO_ACTUAL_POSITION_INDEX, SDO_ACTUAL_POSITION_SUBINDEX, data)){
 		motor->actual_values.Position = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
 	}
